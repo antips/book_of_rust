@@ -44,6 +44,7 @@ fn main() {
     pattern_matching_with_enum_value();
     option_pattern_matching();
     match_default_case();
+    if_let_basic();
 }
 
 fn basic_pattern_matching() {
@@ -85,5 +86,20 @@ fn match_default_case() {
         3 => add_fancy_hat(),
         7 => remove_fancy_hat(),
         _ => (),
+    }
+}
+
+fn if_let_basic() {
+    // Without `if let`
+    let config_max = Some(3u8);
+    match config_max {
+        Some(max) => println!("The maximum is configured to be {max}"),
+        _ => (),
+    }
+
+    // With if let
+    let config_max = Some(3u8);
+    if let Some(max) = config_max {
+        println!("The maximum is configured to be {max}");
     }
 }

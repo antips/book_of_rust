@@ -8,6 +8,13 @@ enum IpAddr {
     V6(String),
 }
 
+enum _AdvancedEnumMessage {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
 fn main() {
     basic_enum_usage();
     store_value_in_enum();

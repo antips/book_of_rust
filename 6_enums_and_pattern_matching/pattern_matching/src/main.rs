@@ -45,6 +45,7 @@ fn main() {
     option_pattern_matching();
     match_default_case();
     if_let_basic();
+    if_let_else();
 }
 
 fn basic_pattern_matching() {
@@ -102,4 +103,25 @@ fn if_let_basic() {
     if let Some(max) = config_max {
         println!("The maximum is configured to be {max}");
     }
+}
+
+fn if_let_else() {
+    let mut count = 0;
+
+    // With pattern matching
+    let coin = Coin::Quarter(UsState::Alabama);
+    match coin {
+        Coin::Quarter(state) => println!("State quarter from {state:?}!"),
+        _ => count += 1,
+    }
+
+    // With if let else
+    let coin = Coin::Quarter(UsState::Alabama);
+    if let Coin::Quarter(state) = coin {
+        println!("State quarter from {state:?}!");
+    } else {
+        count += 1;
+    }
+
+    println!("Count is {count}");
 }

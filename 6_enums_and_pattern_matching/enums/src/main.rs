@@ -8,16 +8,23 @@ enum IpAddr {
     V6(String),
 }
 
-enum _AdvancedEnumMessage {
-    Quit,
-    Move { x: i32, y: i32 },
+enum Message {
+    _Quit,
+    _Move { x: i32, y: i32 },
     Write(String),
-    ChangeColor(i32, i32, i32),
+    _ChangeColor(i32, i32, i32),
+}
+
+impl Message {
+    fn call(&self) {
+        // method body would be defined here
+    }
 }
 
 fn main() {
     basic_enum_usage();
     store_value_in_enum();
+    enum_can_implement_methods();
 }
 
 fn basic_enum_usage() {
@@ -28,4 +35,9 @@ fn basic_enum_usage() {
 fn store_value_in_enum() {
     let _home = IpAddr::V4(127, 0, 0, 1);
     let _loopback = IpAddr::V6(String::from("::1"));
+}
+
+fn enum_can_implement_methods() {
+    let m = Message::Write(String::from("hello"));
+    m.call();
 }

@@ -34,10 +34,16 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
     }
 }
 
+fn add_fancy_hat() {}
+fn remove_fancy_hat() {}
+fn move_player(_num_spaces: u8) {}
+fn reroll() {}
+
 fn main() {
     basic_pattern_matching();
     pattern_matching_with_enum_value();
     option_pattern_matching();
+    match_default_case();
 }
 
 fn basic_pattern_matching() {
@@ -56,4 +62,28 @@ fn option_pattern_matching() {
     let five = Some(5);
     let _six = plus_one(five); // Returns Some(6)
     let _none = plus_one(None); // Returns None
+}
+
+fn match_default_case() {
+    // Default case (and we need the value to use it)
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        other => move_player(other),
+    }
+
+    // Default case (and we don't need the value)
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => reroll(),
+    }
+
+    // Default case (and we don't do anything)
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => (),
+    }
 }

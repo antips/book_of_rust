@@ -1,0 +1,45 @@
+= Book of Rust - Cheat sheet
+:toc:
+
+== Variables
+
+== Functions
+=== Hello World function
+[,rust]
+----
+include::1_hello_world/main.rs[]
+----
+
+== Control flow
+
+== Borrowing
+
+== Conditions and pattern matching
+
+== Cargo project
+=== Initialize
+[,bash]
+----
+$ cargo new your_project_name
+$ cd your_project_name
+----
+=== Build
+==== Dev (No optimization)
+[,bash]
+----
+$ cargo build
+----
+==== Release
+----
+$ cargo build --release
+----
+=== Build and run
+[,bash]
+----
+$ cargo run
+----
+=== Check for compilation errors without compiling
+[,bash]
+----
+$ cargo check
+----
